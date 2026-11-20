@@ -9,6 +9,8 @@ fn main() {
     post.request_review();
     assert_eq!("", post.content());
 
+    post.add_text(" and it was great");
+
     post.reject();
     post.approve();
     assert_eq!("", post.content());
@@ -21,5 +23,8 @@ fn main() {
     post.approve();
     assert_eq!("I ate a salad for lunch today", post.content());
 
-    println!("All checks passed: {}", post.content())
+    post.add_text("!!!");
+    assert_eq!("I ate a salad for lunch today", post.content());
+
+    println!("All checks passed: {}", post.content());
 }
